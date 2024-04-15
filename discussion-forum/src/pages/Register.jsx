@@ -17,6 +17,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email.endsWith("@sjsu.edu")) {
+      toast.error("Use your SJSU email id to signup");
+      return;
+    }
+
     if (password.value !== password_confirmation.value) {
       toast.error("Password and Confirm Password do not match");
       return;
@@ -30,10 +36,7 @@ const Register = () => {
     };
 
     try {
-      const res = await axios.post(
-        "http://localhost:8080/signup",
-        user
-      );
+      const res = await axios.post("http://localhost:8080/signup", user);
       if (res.status === 201) {
         toast.success("User created successfully");
         setTimeout(() => {
@@ -79,7 +82,9 @@ const Register = () => {
       >
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold dark:text-white">SJSU MyCompanion</h3>
+            <h3 className="text-4xl font-bold dark:text-white">
+              SJSU MyCompanion
+            </h3>
           </a>
         </div>
         <div
