@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/login",
+        "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-user-login",
         user
       );
       

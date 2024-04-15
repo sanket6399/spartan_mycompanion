@@ -31,10 +31,12 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/signup",
+        "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan_user_signup",
         user
       );
-      if (res.status === 201) {
+      console.log(res);
+      if (res.status === 200) {
+        console.log(res);
         toast.success("User created successfully");
         setTimeout(() => {
           navigate("/login", { replace: true });
