@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "http://localhost:3000",
-    credentials: true,
+    withCredentials: true,
   })
 );
 
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-// create a new user
+// done
 app.post("/signup", async (req, res) => {
   const { name, password, email, profileImage } = req.body;
   console.log("req.body", req.body);
@@ -36,7 +36,7 @@ app.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-
+//done
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -53,7 +53,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// add question
+// done
 app.post("/ask-question", async (req, res) => {
   const { question, description, userId, tags } = req.body;
   try {
@@ -86,7 +86,7 @@ app.post("/answer/:id", async (req, res) => {
   }
 });
 
-// general routes
+// done
 app.get("/questions", async (req, res) => {
   try {
     const questions = await Question.find({})
@@ -155,7 +155,7 @@ app.post("/downvote/:id", async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-
+//done
 app.get("/allusers", async (req, res) => {
   try {
     const users = await User.find({});
@@ -164,7 +164,7 @@ app.get("/allusers", async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-
+//done
 app.get("/my-questions/:id", async (req, res) => {
   const { id: userId } = req.params;
   try {

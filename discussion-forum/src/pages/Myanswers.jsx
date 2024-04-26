@@ -15,7 +15,7 @@ const Myanswers = () => {
   const { isLoading, data } = useQuery("getMyQuestions", () =>
     newRequests
       .get(
-        `http://localhost:8080/my-questions/${id}`
+        `https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-get-userbased-questions/?id=${id}`
       )
       .then((res) => res.data)
   );

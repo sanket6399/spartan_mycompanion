@@ -53,9 +53,9 @@ const Layout = () => {
 
     const getUsers = async () => {
       const res = await axios.get(
-        "http://localhost:8080/allusers"
+        "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-get-allUsers"
       );
-      setUsers(res.data);
+      setUsers(res.data.body);
     };
     getUsers();
   }, [socket]);

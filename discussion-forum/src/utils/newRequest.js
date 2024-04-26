@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const newRequests = axios.create({
-  baseURL: "http://localhost:8080/",
-  withCredentials: true,
+  baseURL: "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1"
 });
 
 export default newRequests;

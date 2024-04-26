@@ -25,8 +25,8 @@ const Content = () => {
         .then((res) => res.data);
     } else {
       return newRequests
-        .get("http://localhost:8080/questions")
-        .then((res) => res.data);
+        .get("https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-get-questions")
+        .then((res) => res.data.body);
     }
   });
 
@@ -41,6 +41,7 @@ const Content = () => {
       {data && data.length > 0 &&
         data.map((question, index) => {
           console.log("question", question);
+          console.log("DAta", data);
           return (
             <div
               key={index}

@@ -20,13 +20,12 @@ const Login = () => {
         "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-user-login",
         user
       );
-      
-      if (res.status === 200) {
-        localStorage.setItem("user", JSON.stringify(res.data));
+      if (res.data.statusCode === 200) {
+        localStorage.setItem("user", JSON.stringify(res.data.body));
         navigate("/");
         toast.success("Logged in successfully");
       } else {
-        toast.error("User does not exist");
+        toast.error("Incorrect email or password!");
       }
     } catch (error) {
       console.log(error);
@@ -58,7 +57,7 @@ const Login = () => {
               <label
                 htmlFor="email"
                 className="block text-sm font-medium 
-                text-purple-950 dark:text-white"
+                text-purple-950 dark:text-white" 
               >
                 Email
               </label>
@@ -67,7 +66,7 @@ const Login = () => {
                 name="email"
                 className="border border-purple-200 mt-2 w-full h-10 px-3 rounded 
                     outline-none 
-                       shadow-sm"
+                       shadow-sm" required
               />
             </div>
             <div className="mt-4">
@@ -83,7 +82,7 @@ const Login = () => {
                 name="password"
                 className="border border-purple-200 mt-2 w-full h-10 px-3 rounded 
                     outline-none 
-                       shadow-sm"
+                       shadow-sm" required
               />
             </div>
 

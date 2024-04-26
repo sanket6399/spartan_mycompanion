@@ -17,16 +17,16 @@ const Askquestion = () => {
       question: title.value,
       description: description.value,
       tags: tags.value.split(","),
-      userId: user._id,
+      userId: user._id, // user._id, not sure from where we are getting user id
     };
 
-    console.log(question);
+    console.log(user);
 
     const res = await axios.post(
-      "http://localhost:8080/ask-question",
+      "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-question-posting",
       question
     );
-    if (res.status === 201) {
+    if (res.status === 200) {
       toast.success("Question added successfully", (duration = 2000));
       setTimeout(() => {
         naviate("/");
