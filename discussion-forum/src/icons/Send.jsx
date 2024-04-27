@@ -14,7 +14,7 @@ const Send = ({ answer, questionId, setAnswer }) => {
     mutationKey: ["new-answer"],
     mutationFn: (id) => {
       return newRequests.post(
-        `http://localhost:8080/answer/${id}`,
+        `https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-reply-posting/?id=${id}`,
         {
           answer,
           userId: JSON.parse(localStorage.getItem("user"))._id,

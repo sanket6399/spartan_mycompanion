@@ -247,7 +247,6 @@ io.on("connection", (socket) => {
       });
   }
 
-  console.log("users", users);
   io.emit("user-connected", users);
 
   socket.on("join-room", ({ room, user }) => {

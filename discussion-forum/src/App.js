@@ -36,18 +36,14 @@ const Layout = () => {
 
     socket.connect();
     socket.on("connect", () => {
-      console.log("socket connected");
     });
     socket.auth = user;
 
     socket.on("user-connected", (users) => {
-      console.log("users", users);
-
       dispatch(addUsers(users));
     });
 
     socket.on("user-disconnected", (users) => {
-      console.log("users", users);
       dispatch(addUsers(users));
     });
 
@@ -86,7 +82,6 @@ const Layout = () => {
               <h2 className="text-gray-600 font-bold text-start">Top Users</h2>
               {users.length > 0 &&
                 users.slice(0, 5).map((user, index) => {
-                  console.log("user", user);
                   return (
                     <div className="flex items-center cursor-pointer">
                       <img

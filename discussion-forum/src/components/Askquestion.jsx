@@ -9,7 +9,6 @@ import { duration } from "moment";
 const Askquestion = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const naviate = useNavigate();
-  console.log(user._id);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { title, description, tags } = e.target;
@@ -20,7 +19,6 @@ const Askquestion = () => {
       userId: user._id, // user._id, not sure from where we are getting user id
     };
 
-    console.log(user);
 
     const res = await axios.post(
       "https://x6scf9otx8.execute-api.us-east-1.amazonaws.com/spartan-v1/spartan-question-posting",

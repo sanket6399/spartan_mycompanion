@@ -13,7 +13,6 @@ import main_icon from "../assets/main_icon.png";
 const Navbar = () => {
   const open = useSelector((state) => state.sidebar.open);
   const dark = useSelector((state) => state.theme.isDark);
-  console.log(dark);
   const dispatch = useDispatch();
   const handleChange = (e) => {};
   const user = JSON.parse(localStorage.getItem("user"));

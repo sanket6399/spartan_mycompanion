@@ -40,8 +40,6 @@ const Content = () => {
       <Toaster />
       {data && data.length > 0 &&
         data.map((question, index) => {
-          console.log("question", question);
-          console.log("DAta", data);
           return (
             <div
               key={index}
@@ -81,7 +79,6 @@ const Content = () => {
               {openId.find((ele) => ele === index + 1) && (
                 <>
                   {question?.replies?.map((answer, index) => {
-                    console.log("answer", answer);
                     return (
                       <div key={answer._id} className="flex items-center gap-4">
                         {/* fix this */}
