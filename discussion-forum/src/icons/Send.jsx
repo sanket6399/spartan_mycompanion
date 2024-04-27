@@ -9,7 +9,7 @@ const Send = ({ answer, questionId, setAnswer }) => {
   const handleSubmit = async (e) => {
     mutation.mutate(questionId);
   };
-
+  console.log(answer, questionId);
   const mutation = useMutation({
     mutationKey: ["new-answer"],
     mutationFn: (id) => {

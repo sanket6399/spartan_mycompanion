@@ -31,7 +31,9 @@ const Content = () => {
   });
 
   if (isLoading) return <Loading />;
-
+  console.log(data);
+  //console.log(data[0].question_id);
+//  console.log(data.map((question) => question._id));
   return (
     <div
       className="md:w-[60%] flex flex-col items-center gap-y-5 
@@ -42,7 +44,7 @@ const Content = () => {
         data.map((question, index) => {
           return (
             <div
-              key={index}
+              key={question.question_id}
               className="w-[96%] md:w-[80%] mx-12 flex flex-col 
               items-end  p-3 md:p-4 rounded-md bg-purple-100
                dark:bg-slate-400"
@@ -112,7 +114,7 @@ const Content = () => {
                       placeholder="Write a comment"
                     />
                     <Send
-                      questionId={question._id}
+                      questionId={question.question_id}
                       answer={answer}
                       setAnswer={setAnswer}
                     />
